@@ -11,27 +11,24 @@ import javax.servlet.ServletResponse;
 
 public class DemoFilter implements Filter {
 
-	@Override
-	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
-			throws IOException, ServletException {
-		// TODO 自动生成的方法存根
-		System.out.println("adFilter start");
-		chain.doFilter(req, resp);
-		System.out.println("end");
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
+        throws IOException, ServletException {
+        // TODO 自动生成的方法存根
+        System.out.println("adFilter start");
+        chain.doFilter(req, resp);
+        System.out.println("end");
 
-	}
+    }
 
-	@Override
-	public void destroy() {
-		// TODO 自动生成的方法存根
-		//Filter.super.destroy();
-	}
+    public void destroy() {
+        // TODO 自动生成的方法存根
+        // Filter.super.destroy();
+    }
 
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO 自动生成的方法存根
-		//Filter.super.init(filterConfig);
-		System.out.println("Filter init");
-	}
+    public void init(FilterConfig filterConfig) throws ServletException {
+        // TODO 自动生成的方法存根
+        // Filter.super.init(filterConfig);
+        System.out.println("Filter init");
+    }
 
 }
