@@ -7,6 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <%
+    //测试git
 	String path = request.getContextPath();
 	pageContext.setAttribute("path", path);
 %>
