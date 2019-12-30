@@ -11,22 +11,25 @@ import javax.servlet.ServletResponse;
 
 public class DemoFilter implements Filter {
 
+    @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
         throws IOException, ServletException {
-        // TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+        // TODO ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ÉµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         System.out.println("adFilter start");
         chain.doFilter(req, resp);
         System.out.println("end");
 
     }
 
+    @Override
     public void destroy() {
-        // TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+        // TODO ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ÉµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         // Filter.super.destroy();
     }
 
+    @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        // TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+        // TODO ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ÉµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         // Filter.super.init(filterConfig);
         System.out.println("Filter init");
     }
