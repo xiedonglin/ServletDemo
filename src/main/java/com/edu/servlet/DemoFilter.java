@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 
 public class DemoFilter implements Filter {
 
+    @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
         throws IOException, ServletException {
         // TODO 自动生成的方法存根
@@ -20,11 +21,13 @@ public class DemoFilter implements Filter {
 
     }
 
+    @Override
     public void destroy() {
         // TODO 自动生成的方法存根
         // Filter.super.destroy();
     }
 
+    @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         // TODO 自动生成的方法存根
         // Filter.super.init(filterConfig);

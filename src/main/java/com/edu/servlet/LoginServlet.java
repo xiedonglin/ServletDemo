@@ -18,52 +18,50 @@ import com.edu.service.StudentService;
  */
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public LoginServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public LoginServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        response.getWriter().append("Served at: ").append(request.getContextPath());
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		doGet(request, response);
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        // doGet(request, response);
         HttpSession session = request.getSession(true);
         String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		StudentService service=new StudentService();
-		Student sd = service.checkUserLogin(username, password);
-		if(sd != null) {
+        String password = request.getParameter("password");
+        StudentService service = new StudentService();
+        Student sd = service.checkUserLogin(username, password);
+        if (sd != null) {
 
+            Cookie cookie = new Cookie("xiedonglin", "helloworld");
+            response.addCookie(cookie);
 
-		    Cookie cookie = new Cookie("xiedonglin","helloworld");
-		    response.addCookie(cookie);
+            request.getSession().setAttribute("student", sd);
+            response.sendRedirect(request.getContextPath() + "/user/info.jsp");
+        } else {
+            response.sendRedirect(request.getContextPath() + "?error=ture");
+        }
 
-
-		    request.getSession().setAttribute("student", sd);
-			response.sendRedirect(request.getContextPath()+"/user/info.jsp");
-		}else {
-			response.sendRedirect(request.getContextPath()+"?error=ture");
-		}
-
-	}
+    }
 
 }
